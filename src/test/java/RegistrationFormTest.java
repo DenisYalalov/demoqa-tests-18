@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class automationpracticeform {
+public class RegistrationFormTest {
 
     @BeforeAll
     static void beforeAll() {
@@ -17,7 +17,7 @@ public class automationpracticeform {
     }
 
     @Test
-    public void automationpracticeform () {
+    public void RegistrationFormTest1 () {
         open("https://demoqa.com/automation-practice-form");
         Selenide.executeJavaScript("$('#fixedban').remove()");
         Selenide.executeJavaScript("$('footer').remove()");
