@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Test;
 
 public class registrationWithPageFormTest extends Base {
+
     @Test
     void registrationFormTest() {
         String UserState = "Haryana";
         String UserCity = "Karnal";
-
         registrationPage.openPage();
         registrationPage.removingTheBanner();
         registrationPage.firstName("denis");
@@ -21,7 +21,6 @@ public class registrationWithPageFormTest extends Base {
         registrationPage.setUserStateAndCity("Haryana");
         registrationPage.setCity("Karnal");
         registrationPage.clickSubmit();
-
         registrationPage.verifyResultsModalAppears()
                 .verifyResult("Student Name", "Yalalov");
         registrationPage.verifyResult("Student Email", "denis@mail.com");
@@ -31,7 +30,6 @@ public class registrationWithPageFormTest extends Base {
         registrationPage.verifyResult("Subjects", "English");
         registrationPage.verifyResult("Hobbies", "Music");
         registrationPage.verifyResult("State and City", UserState + " " + UserCity);
-
 
     }
 
