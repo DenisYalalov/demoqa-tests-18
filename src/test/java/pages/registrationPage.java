@@ -1,5 +1,4 @@
 package pages;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultsModal;
@@ -12,6 +11,7 @@ public class registrationPage {
     private final SelenideElement userState = $("#state");
     private final SelenideElement userCity = $("#city");
     private final SelenideElement stateCityWrapper = $("#stateCity-wrapper");
+    private final SelenideElement submitButton = $("#submit");
 
     private SelenideElement
             firstNameInput = $("#firstName"),
@@ -34,6 +34,7 @@ public class registrationPage {
 
     public void lastName(String value) {
         lastNameInput.setValue(value);
+
     }
 
     public void setEmail(String value) {
@@ -41,11 +42,13 @@ public class registrationPage {
     }
 
     public void setGender(String value) {
+
         $("#genterWrapper").$(byText(value)).click();
     }
 
     public void setPhone(String value) {
         $("#userNumber").setValue(value);
+
     }
 
     public registrationPage setBirthDay(String day, String month, String year) {
@@ -62,22 +65,27 @@ public class registrationPage {
     public registrationPage verifyResult(String key, String value) {
         registrationResultsModal.verifyResult(key, value);
         return this;
+
     }
 
     public void setSubjects(String value) {
         $("#subjectsInput").setValue(value).pressEnter();
+
     }
 
     public void setHobbies(String value) {
         $("#hobbies-checkbox-3").parent().$(byText(value)).click();
+
     }
 
     public void setUpload(String value) {
         $("#uploadPicture").uploadFromClasspath(value);
+
     }
 
     public void setAddress(String value) {
         $("#currentAddress").setValue(value);
+
     }
 
     public registrationPage setUserStateAndCity(String value) {
@@ -88,11 +96,17 @@ public class registrationPage {
         return this;
     }
 
+    public void submitForm() {
+        submitButton.click();
+    }
+
     public void setCity(String city) {
         this.city = city;
     }
 
     public void clickSubmit() {
+
         $("#submit").click();
     }
+
 }
