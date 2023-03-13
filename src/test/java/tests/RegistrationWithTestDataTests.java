@@ -1,23 +1,34 @@
-import com.codeborne.selenide.Configuration;
+package tests;
+
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.BeforeAll;
+import lessonseven.registrationPage;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static utils.RandomUtils.getRandoEmail;
+import static utils.RandomUtils.getRandomstring;
 
-public class RegistrationFormTest {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
+public class RegistrationWithTestDataTests extends Base {
+    registrationPage registrationPage = new registrationPage();
 
     @Test
-    public void RegistrationFormTest1 () {
+    public void RegistrationFormTest1() {
+        String value = getRandomstring(10),
+                lastName = getRandomstring(10),
+                email = getRandoEmail();
+
+        registrationPage.openPage();
+        registrationPage.removingTheBanner();
+        registrationPage.firstName(value);
+        registrationPage.lastName(lastName);
+        registrationPage.setEmail(email);
+        registrationPage.setGender("Male");
+        registrationPage.setPhone("9199199999");
+        registrationPage.setBirthDay("21", "March", "2023");
+
         open("https://demoqa.com/automation-practice-form");
         Selenide.executeJavaScript("$('#fixedban').remove()");
         Selenide.executeJavaScript("$('footer').remove()");
@@ -51,6 +62,19 @@ public class RegistrationFormTest {
         $(".modal-body").shouldHave(text("Ufa102"));
         $(".modal-body").shouldHave(text("Uttar Pradesh Agra"));
         $("#closeLargeModal").click();
+        registrationPage.verifyResultsModalAppears()
+                .verifyResult("Student Name", value + " " + lastName);
+        registrationPage.verifyResult("Student Email", email);
+        registrationPage.verifyResult("Gender", "Male");
+        registrationPage.verifyResult("Mobile", "9199199999");
+        registrationPage.verifyResult("Date of Birth", "21 March,2023");
+        registrationPage.verifyResult("Subjects", "English");
+        registrationPage.verifyResult("Hobbies", "Music");
+        String UserState = new String();
+        String UserCity = new String();
+        registrationPage.verifyResult("State and City", UserState + " " + UserCity);
 
     }
+
+
 }

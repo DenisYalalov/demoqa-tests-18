@@ -1,6 +1,13 @@
+package lessonseven;
+
 import org.junit.jupiter.api.Test;
 
-public class registrationWithPageFormTest extends Base {
+public class RegistrationWithPageFormTest {
+
+    private lessonseven.registrationPage registrationPage;
+    
+
+    
 
     @Test
     void registrationFormTest() {
@@ -34,4 +41,7 @@ public class registrationWithPageFormTest extends Base {
     }
 
 
+    public void setRegistrationPage(lessonseven.registrationPage registrationPage) {
+        this.registrationPage = registrationPage;
+    }
 }

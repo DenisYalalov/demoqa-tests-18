@@ -1,8 +1,7 @@
-package pages;
-import com.codeborne.selenide.Selenide;
+package lessonseven;
+
 import com.codeborne.selenide.SelenideElement;
-import pages.components.CalendarComponent;
-import pages.components.RegistrationResultsModal;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
