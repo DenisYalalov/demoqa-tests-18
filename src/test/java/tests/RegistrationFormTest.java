@@ -1,6 +1,6 @@
 package tests;
 import com.codeborne.selenide.Selenide;
-import lessonseven.registrationPage;
+import lessonseven.RegistrationPage;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationFormTest extends Base {
-    registrationPage registrationPage = new registrationPage();
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     public void registrationFormTest1() {

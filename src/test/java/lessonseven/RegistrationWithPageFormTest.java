@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class RegistrationWithPageFormTest {
 
-    private lessonseven.registrationPage registrationPage;
+    public RegistrationPage registrationPage;
     
 
     
@@ -41,7 +41,4 @@ public class RegistrationWithPageFormTest {
     }
 
 
-    public void setRegistrationPage(lessonseven.registrationPage registrationPage) {
-        this.registrationPage = registrationPage;
-    }
 }

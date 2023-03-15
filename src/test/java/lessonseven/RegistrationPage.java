@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class registrationPage {
+public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
     private final SelenideElement userState = $("#state");
@@ -21,7 +21,7 @@ public class registrationPage {
         open("/automation-practice-form");
 
     }
-    public registrationPage removingTheBanner() {
+    public RegistrationPage removingTheBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
@@ -47,18 +47,18 @@ public class registrationPage {
         $("#userNumber").setValue(value);
     }
 
-    public registrationPage setBirthDay(String day, String month, String year) {
+    public RegistrationPage setBirthDay(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public registrationPage verifyResultsModalAppears() {
+    public RegistrationPage verifyResultsModalAppears() {
         registrationResultsModal.verifyModalAppears();
         return this;
     }
 
-    public registrationPage verifyResult(String key, String value) {
+    public RegistrationPage verifyResult(String key, String value) {
         registrationResultsModal.verifyResult(key, value);
         return this;
     }
@@ -79,7 +79,7 @@ public class registrationPage {
         $("#currentAddress").setValue(value);
     }
 
-    public registrationPage setUserStateAndCity(String value) {
+    public RegistrationPage setUserStateAndCity(String value) {
         userState.click();
         stateCityWrapper.$(byText(value)).click();
         userCity.click();

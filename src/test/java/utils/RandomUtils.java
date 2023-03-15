@@ -30,7 +30,7 @@ public class RandomUtils {
     public static String getRandoEmail() {
         return getRandomstring(10) + "@qa.guru";
     }
-    public static String getRandomItemFromArray(String[] values){
+    public static String getRandomItemFromArray(String[] values) {
         int index = getRandomInt(0, values.length - 1);
 
         return values[index];

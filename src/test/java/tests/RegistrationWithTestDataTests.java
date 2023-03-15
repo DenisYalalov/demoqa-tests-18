@@ -1,7 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Selenide;
-import lessonseven.registrationPage;
+import lessonseven.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -12,10 +12,10 @@ import static utils.RandomUtils.getRandoEmail;
 import static utils.RandomUtils.getRandomstring;
 
 public class RegistrationWithTestDataTests extends Base {
-    registrationPage registrationPage = new registrationPage();
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    public void RegistrationFormTest1() {
+    public void registrationFormTest1() {
         String value = getRandomstring(10),
                 lastName = getRandomstring(10),
                 email = getRandoEmail();
