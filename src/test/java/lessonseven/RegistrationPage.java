@@ -1,5 +1,6 @@
 package lessonseven;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -21,6 +22,7 @@ public class RegistrationPage {
         open("/automation-practice-form");
 
     }
+
     public RegistrationPage removingTheBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -94,4 +96,18 @@ public class RegistrationPage {
     public void clickSubmit() {
         $("#submit").click();
     }
+
+
+    public void clickGender(String gender) {
+        Selenide GenderSelector = new Selenide();
+        GenderSelector.$(byText(gender)).click();
+    }
+    public void clickHobbies(String hobbies) {
+        Selenide HobbiesSelector = new Selenide();
+        HobbiesSelector.$(byText(hobbies)).click();
+    }
+    public void clickClose() {
+        SelenideElement closeButton = null;
+        closeButton.click();
+        }
 }
