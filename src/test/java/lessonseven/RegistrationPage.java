@@ -17,6 +17,7 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName");
     private String city;
+    private String state;
 
     public void openPage() {
         open("/automation-practice-form");
@@ -81,16 +82,17 @@ public class RegistrationPage {
         $("#currentAddress").setValue(value);
     }
 
-    public RegistrationPage setUserStateAndCity(String value) {
+    public void setState(String value) {
         userState.click();
-        stateCityWrapper.$(byText(value)).click();
-        userCity.click();
-        stateCityWrapper.$(byText("Karnal")).click();
-        return this;
+        Selenide userStateCityWrapper = null;
+        userStateCityWrapper.$(byText(value)).click();
     }
 
-    public void setCity(String city) {
-        this.city = city;
+
+    public void setCity(String value) {
+        userCity.click();
+        Selenide userStateCityWrapper = new Selenide();
+        userStateCityWrapper.$(byText(value)).click();
     }
 
     public void clickSubmit() {
@@ -102,12 +104,10 @@ public class RegistrationPage {
         Selenide GenderSelector = new Selenide();
         GenderSelector.$(byText(gender)).click();
     }
+
     public void clickHobbies(String hobbies) {
         Selenide HobbiesSelector = new Selenide();
         HobbiesSelector.$(byText(hobbies)).click();
     }
-    public void clickClose() {
-        SelenideElement closeButton = null;
-        closeButton.click();
-        }
+
 }

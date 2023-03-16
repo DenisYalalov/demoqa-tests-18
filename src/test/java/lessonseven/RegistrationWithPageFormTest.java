@@ -25,7 +25,7 @@ public class RegistrationWithPageFormTest {
         registrationPage.setHobbies("Music");
         registrationPage.setUpload("1.jpeg");
         registrationPage.setAddress("ufa102");
-        registrationPage.setUserStateAndCity("Haryana");
+        registrationPage.setState("Haryana");
         registrationPage.setCity("Karnal");
         registrationPage.clickSubmit();
         registrationPage.verifyResultsModalAppears()

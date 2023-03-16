@@ -10,17 +10,13 @@ public class RegistrationWithFakerTests extends Base {
     @Test
     public void registrationFormTest1() {
         Faker faker = new Faker();
-        String city = new String();
-        String userCity = city;
-
-
 
         String Name = faker.name().firstName();
         String LastName = faker.name().lastName();
         String Email = faker.internet().emailAddress();
         String Gender = faker.options().option("Male", "Female", "Other");
         String userNumber = 8 + faker.phoneNumber().subscriberNumber(9);
-        String userBirthDay_day = String.valueOf(faker.number().numberBetween(1, 28));
+        String userBirthDay_day = String.valueOf(faker.number().numberBetween(1, 30));
         String userBirthDay_month = faker.options().option("January", "February",
                 "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
         String userBirthDay_year = String.valueOf(faker.number().numberBetween(1950, 2000));
@@ -28,10 +24,21 @@ public class RegistrationWithFakerTests extends Base {
         String Subjects = faker.options().option("English", "Physics", "Chemistry", "Computer Science",
                 "Commerce", "Accounting", "Economics");
         String PictureLocation = "1.jpeg";
-        String Address = faker.address().streetName();
-        String State = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+        String userAddress = faker.address().streetName();
+        String userState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
 
+        String city;
 
+        if (userState == "NCR") {
+            city = faker.options().option("Gurgaon", "Delhi", "Noida");
+        } else if (userState == "Uttar Pradesh") {
+            city = faker.options().option("Merrut", "Lucknow", "Agra");
+        } else if (userState == "Haryana") {
+            city = faker.options().option("Panipat", "Karnal");
+        } else {
+            city = faker.options().option("Jaiselmer", "Jaipur");
+        }
+        String userCity = city;
 
 
         registrationPage.openPage();
@@ -41,28 +48,26 @@ public class RegistrationWithFakerTests extends Base {
         registrationPage.setEmail(Email);
         registrationPage.clickGender(Gender);
         registrationPage.setPhone(userNumber);
-        registrationPage.setBirthDay(userBirthDay_day , userBirthDay_month, userBirthDay_year);
+        registrationPage.setBirthDay(userBirthDay_day, userBirthDay_month, userBirthDay_year);
         registrationPage.setSubjects(Subjects);
         registrationPage.clickHobbies(Hobbies);
         registrationPage.setUpload(PictureLocation);
-        registrationPage.setAddress(Address);
-        registrationPage.setCity(State);
+        registrationPage.setAddress(userAddress);
+        registrationPage.setState(userState);
         registrationPage.setCity(userCity);
 
         registrationPage.clickSubmit();
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name",  Name + " " + LastName );
+                .verifyResult("Student Name", Name + " " + LastName);
         registrationPage.verifyResult("Student Email", Email);
         registrationPage.verifyResult("Gender", Gender);
         registrationPage.verifyResult("Mobile", userNumber);
-        registrationPage.verifyResult("Date of Birth", userBirthDay_day + " " + userBirthDay_month + " " + userBirthDay_year);
+        registrationPage.verifyResult("Date of Birth", userBirthDay_day + " " + userBirthDay_month + "," + userBirthDay_year);
         registrationPage.verifyResult("Subjects", Subjects);
-        registrationPage.verifyResult("Current Address", Address);
+        registrationPage.verifyResult("Address", userAddress);
         registrationPage.verifyResult("Hobbies", Hobbies);
-        registrationPage.verifyResult("State and City", State + " " + userCity );
-
-        registrationPage.clickClose();
+        registrationPage.verifyResult("State and City", userState + " " + userCity);
 
 
     }
