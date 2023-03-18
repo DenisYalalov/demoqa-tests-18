@@ -11,13 +11,11 @@ public class RegistrationPage {
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
     private final SelenideElement userState = $("#state");
     private final SelenideElement userCity = $("#city");
-    private final SelenideElement stateCityWrapper = $("#stateCity-wrapper");
+
 
     private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName");
-    private String city;
-    private String state;
 
     public void openPage() {
         open("/automation-practice-form");

@@ -1,13 +1,11 @@
 package lessonseven;
 
 import org.junit.jupiter.api.Test;
+import tests.Base;
 
-public class RegistrationWithPageFormTest {
+public class RegistrationWithPageFormTest extends Base {
 
-    public RegistrationPage registrationPage;
-    
-
-    
+   RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void registrationFormTest() {
