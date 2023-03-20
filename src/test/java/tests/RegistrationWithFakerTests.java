@@ -18,7 +18,7 @@ public class RegistrationWithFakerTests extends Base {
         registrationPage.setEmail(Email);
         registrationPage.clickGender(Gender);
         registrationPage.setPhone(userNumber);
-        registrationPage.setBirthDay(userBirthDay_day, userBirthDay_month, userBirthDay_year);
+        registrationPage.setBirthDay(dayOfBirth, monthOfBirth, yearOfBirth);
         registrationPage.setSubjects(Subjects);
         registrationPage.clickHobbies(Hobbies);
         registrationPage.setUpload(PictureLocation);
@@ -33,7 +33,7 @@ public class RegistrationWithFakerTests extends Base {
         registrationPage.verifyResult("Student Email", Email);
         registrationPage.verifyResult("Gender", Gender);
         registrationPage.verifyResult("Mobile", userNumber);
-        registrationPage.verifyResult("Date of Birth", userBirthDay_day + " " + userBirthDay_month + "," + userBirthDay_year);
+        registrationPage.verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth);
         registrationPage.verifyResult("Subjects", Subjects);
         registrationPage.verifyResult("Address", userAddress);
         registrationPage.verifyResult("Hobbies", Hobbies);
