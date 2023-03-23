@@ -3,9 +3,7 @@ package tests;
 import lessonseven.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
-import static tests.UtilFaker.*;
-
-public class RegistrationWithFakerTests extends Base {
+public class RegistrationWithFakerTests extends UtilFaker {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
@@ -13,15 +11,15 @@ public class RegistrationWithFakerTests extends Base {
 
         registrationPage.openPage();
         registrationPage.removingTheBanner();
-        registrationPage.firstName(Name);
-        registrationPage.lastName(LastName);
-        registrationPage.setEmail(Email);
-        registrationPage.clickGender(Gender);
+        registrationPage.firstName(name);
+        registrationPage.lastName(lastName);
+        registrationPage.setEmail(email);
+        registrationPage.clickGender(gender);
         registrationPage.setPhone(userNumber);
         registrationPage.setBirthDay(dayOfBirth, monthOfBirth, yearOfBirth);
         registrationPage.setSubjects(Subjects);
         registrationPage.clickHobbies(Hobbies);
-        registrationPage.setUpload(PictureLocation);
+        registrationPage.setUpload(pictureLocation);
         registrationPage.setAddress(userAddress);
         registrationPage.setState(userState);
         registrationPage.setCity(userCity);
@@ -29,9 +27,9 @@ public class RegistrationWithFakerTests extends Base {
         registrationPage.clickSubmit();
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", Name + " " + LastName);
-        registrationPage.verifyResult("Student Email", Email);
-        registrationPage.verifyResult("Gender", Gender);
+                .verifyResult("Student Name", name + " " + lastName);
+        registrationPage.verifyResult("Student Email", email);
+        registrationPage.verifyResult("Gender", gender);
         registrationPage.verifyResult("Mobile", userNumber);
         registrationPage.verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth);
         registrationPage.verifyResult("Subjects", Subjects);
@@ -39,6 +37,11 @@ public class RegistrationWithFakerTests extends Base {
         registrationPage.verifyResult("Hobbies", Hobbies);
         registrationPage.verifyResult("State and City", userState + " " + userCity);
 
+    }
+    @Test
+    public void Test1(){
+        System.out.println(name);
+        System.out.println(name);
     }
 
 }
