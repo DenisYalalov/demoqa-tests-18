@@ -7,6 +7,8 @@ import java.util.Map;
 import static java.lang.String.valueOf;
 
 public class UtilFaker {
+
+
     Faker faker = new Faker();
     String Subjects;
 
@@ -46,7 +48,7 @@ public class UtilFaker {
 
 
     Map<String, String[]> mapStateWithCity = Map.of(
-            "NCR", new String[]{"Gurgaon", "Noida"},
+            "NCR", new String[]{"Delhi", "Gurgaon", "Noida"},
             "Uttar Pradesh", new String[]{"Agra", "Lucknow", "Merrut"},
             "Haryana", new String[]{"Karnal", "Panipat"},
             "Rajasthan", new String[]{"Jaipur", "Jaiselmer"}

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import lessonseven.RegistrationPage;
 
-public class Base {
+public class TestBase {
     RegistrationPage registrationPage;
     @BeforeAll
     static void beforeAll() {
@@ -16,4 +16,5 @@ public class Base {
     void setUp() {
         registrationPage = new RegistrationPage();
     }
+
 }

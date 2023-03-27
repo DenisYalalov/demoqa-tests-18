@@ -1,47 +1,49 @@
 package tests;
 
 import lessonseven.RegistrationPage;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RegistrationWithFakerTests extends UtilFaker {
+public class RegistrationWithFakerTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+    @BeforeEach
+    void setUp() {
+        registrationPage = new RegistrationPage();
+    }
 
     @Test
     public void registrationFormTest1() {
+        UtilFaker myData = new UtilFaker();
 
         registrationPage.openPage();
         registrationPage.removingTheBanner();
-        registrationPage.firstName(name);
-        registrationPage.lastName(lastName);
-        registrationPage.setEmail(email);
-        registrationPage.clickGender(gender);
-        registrationPage.setPhone(userNumber);
-        registrationPage.setBirthDay(dayOfBirth, monthOfBirth, yearOfBirth);
-        registrationPage.setSubjects(Subjects);
-        registrationPage.clickHobbies(Hobbies);
-        registrationPage.setUpload(pictureLocation);
-        registrationPage.setAddress(userAddress);
-        registrationPage.setState(userState);
-        registrationPage.setCity(userCity);
+        registrationPage.firstName(myData.name);
+        registrationPage.lastName(myData.lastName);
+        registrationPage.setEmail(myData.email);
+        registrationPage.clickGender(myData.gender);
+        registrationPage.setPhone(myData.userNumber);
+        registrationPage.setBirthDay(myData.dayOfBirth, myData.monthOfBirth, myData.yearOfBirth);
+        registrationPage.setSubjects(myData.Subjects);
+        registrationPage.clickHobbies(myData.Hobbies);
+        registrationPage.setUpload(myData.pictureLocation);
+        registrationPage.setAddress(myData.userAddress);
+        registrationPage.setState(myData.userState);
+        registrationPage.setCity(myData.userCity);
 
         registrationPage.clickSubmit();
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", name + " " + lastName);
-        registrationPage.verifyResult("Student Email", email);
-        registrationPage.verifyResult("Gender", gender);
-        registrationPage.verifyResult("Mobile", userNumber);
-        registrationPage.verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth);
-        registrationPage.verifyResult("Subjects", Subjects);
-        registrationPage.verifyResult("Address", userAddress);
-        registrationPage.verifyResult("Hobbies", Hobbies);
-        registrationPage.verifyResult("State and City", userState + " " + userCity);
+                .verifyResult("Student Name", myData.name + " " + myData.lastName);
+        registrationPage.verifyResult("Student Email", myData.email);
+        registrationPage.verifyResult("Gender", myData.gender);
+        registrationPage.verifyResult("Mobile", myData.userNumber);
+        registrationPage.verifyResult("Date of Birth", myData.dayOfBirth + " " + myData.monthOfBirth + "," + myData.yearOfBirth);
+        registrationPage.verifyResult("Subjects", myData.Subjects);
+        registrationPage.verifyResult("Address", myData.userAddress);
+        registrationPage.verifyResult("Hobbies", myData.Hobbies);
+        registrationPage.verifyResult("State and City", myData.userState + " " + myData.userCity);
 
     }
-    @Test
-    public void Test1(){
-        System.out.println(name);
-        System.out.println(name);
-    }
+
 
 }

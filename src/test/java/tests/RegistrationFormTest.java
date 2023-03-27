@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class RegistrationFormTest extends Base {
+public class RegistrationFormTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test

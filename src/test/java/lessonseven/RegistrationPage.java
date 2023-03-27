@@ -82,15 +82,13 @@ public class RegistrationPage {
 
     public void setState(String value) {
         userState.click();
-        Selenide userStateCityWrapper = null;
-        userStateCityWrapper.$(byText(value)).click();
+        userState.$(byText(value)).click();
     }
 
 
     public void setCity(String value) {
         userCity.click();
-        Selenide userStateCityWrapper = new Selenide();
-        userStateCityWrapper.$(byText(value)).click();
+        userCity.$(byText(value)).click();
     }
 
     public void clickSubmit() {

@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static utils.RandomUtils.getRandoEmail;
 import static utils.RandomUtils.getRandomstring;
 
-public class RegistrationWithTestDataTests extends Base {
+public class RegistrationWithTestDataTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
