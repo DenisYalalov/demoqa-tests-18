@@ -22,9 +22,9 @@ public class RegistrationWithFakerTests extends TestBase {
         registrationPage.setEmail(myData.email);
         registrationPage.clickGender(myData.gender);
         registrationPage.setPhone(myData.userNumber);
-        registrationPage.setBirthDay(myData.dayOfBirth, myData.monthOfBirth, myData.yearOfBirth);
-        registrationPage.setSubjects(myData.Subjects);
-        registrationPage.clickHobbies(myData.Hobbies);
+        registrationPage.setBirthDay(myData.day, myData.month, myData.year);
+        registrationPage.setSubjects(myData.subjects);
+        registrationPage.clickHobbies(myData.hobbies);
         registrationPage.setUpload(myData.pictureLocation);
         registrationPage.setAddress(myData.userAddress);
         registrationPage.setState(myData.userState);
@@ -37,10 +37,10 @@ public class RegistrationWithFakerTests extends TestBase {
         registrationPage.verifyResult("Student Email", myData.email);
         registrationPage.verifyResult("Gender", myData.gender);
         registrationPage.verifyResult("Mobile", myData.userNumber);
-        registrationPage.verifyResult("Date of Birth", myData.dayOfBirth + " " + myData.monthOfBirth + "," + myData.yearOfBirth);
-        registrationPage.verifyResult("Subjects", myData.Subjects);
+        registrationPage.verifyResult("Date of Birth", myData.day + " " + myData.month + "," + myData.year);
+        registrationPage.verifyResult("Subjects", myData.subjects);
         registrationPage.verifyResult("Address", myData.userAddress);
-        registrationPage.verifyResult("Hobbies", myData.Hobbies);
+        registrationPage.verifyResult("Hobbies", myData.hobbies);
         registrationPage.verifyResult("State and City", myData.userState + " " + myData.userCity);
 
     }
