@@ -2,25 +2,26 @@ package tests;
 
 import com.github.javafaker.Faker;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
-
-import static java.lang.String.valueOf;
 
 public class UtilFaker {
 
 
     Faker faker = new Faker();
-    String Subjects;
+    String subjects;
 
     {
-        Subjects = faker.options().option("English", "Physics", "Chemistry", "Computer Science",
+        subjects = faker.options().option("English", "Physics", "Chemistry", "Computer Science",
                 "Commerce", "Accounting", "Economics");
     }
 
-    String Hobbies;
+    String hobbies;
 
     {
-        Hobbies = faker.options().option("Music", "Sports", "Reading");
+        hobbies = faker.options().option("Music", "Sports", "Reading");
     }
 
     String name = faker.name().firstName();
@@ -32,19 +33,19 @@ public class UtilFaker {
 
 
     String userNumber = 8 + faker.phoneNumber().subscriberNumber(9);
+    Date myBirthday = faker.date().birthday();
+    SimpleDateFormat sdfyear = new SimpleDateFormat("yyyy");
+    String year = sdfyear.format(myBirthday) ;
+    SimpleDateFormat sdfmonth = new SimpleDateFormat("MMMM",Locale.ENGLISH);
+    String month = sdfmonth.format(myBirthday) ;
+    SimpleDateFormat sdfday = new SimpleDateFormat("dd");
+    String day = sdfday.format(myBirthday);
 
-    String dayOfBirth = valueOf(faker.number().numberBetween(1, 28));
 
-    String monthOfBirth = faker.options().option("January", "February",
-            "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-
-    String yearOfBirth = valueOf(faker.number().numberBetween(1950, 2000));
 
     String pictureLocation = "1.jpeg";
 
     String userAddress = faker.address().streetName();
-
-    String userState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
 
 
     Map<String, String[]> mapStateWithCity = Map.of(
@@ -54,7 +55,7 @@ public class UtilFaker {
             "Rajasthan", new String[]{"Jaipur", "Jaiselmer"}
     );
     String state = faker.options().option(mapStateWithCity.keySet().toArray()).toString();
-    String userCity = faker.options().option(mapStateWithCity.get(state));
+    String usercity = faker.options().option(mapStateWithCity.get(state));
 
 
 }
