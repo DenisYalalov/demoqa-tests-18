@@ -1,5 +1,21 @@
 plugins {
     id 'java-library'
+    id 'io.qameta.allure' version '2.10.0'
+}
+def allureVersion = "2.19.0",
+    slf4jVersion = "1.7.32"
+allure {
+    report {
+        version.set("2.19.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.19.0")
+            }
+        }
+    }
 }
 
 
@@ -9,13 +25,20 @@ repositories {
 
 dependencies {
     implementation("com.github.javafaker:javafaker:1.0.2")
-    testImplementation (
-            "com.codeborne:selenide:6.12.2",
-            "org.junit.jupiter:junit-jupiter:5.9.2",
-            "org.slf4j:slf4j-simple:2.0.6"
+    testImplementation(
+            "com.codeborne:selenide:6.10.3",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "com.github.javafaker:javafaker:0.12",
+            "org.junit.jupiter:junit-jupiter:5.9.1",
+            "org.slf4j:slf4j-simple:$slf4jVersion"
     )
 }
 
 test {
     useJUnitPlatform()
+}
+task simple_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
 }
