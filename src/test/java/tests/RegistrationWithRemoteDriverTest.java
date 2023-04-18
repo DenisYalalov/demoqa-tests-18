@@ -8,17 +8,19 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationWithRemoteDriverTest extends TestBaseExtendet {
 
     @Test
     @Tag("remote")
     public void registrationFormTest11() {
-
-        open("https://demoqa.com/automation-practice-form");
-        Selenide.executeJavaScript("$('#fixedban').remove()");
-        Selenide.executeJavaScript("$('footer').remove()");
-
+        step("Open form", () -> {
+            open("https://demoqa.com/automation-practice-form");
+            Selenide.executeJavaScript("$('#fixedban').remove()");
+            Selenide.executeJavaScript("$('footer').remove()");
+        });
+        step("Fill form", () -> {
         $("#firstName").setValue("denis");
         $("#lastName").setValue("Yalalov");
         $("#userEmail").setValue("denis@mail.com");
@@ -37,6 +39,8 @@ public class RegistrationWithRemoteDriverTest extends TestBaseExtendet {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Agra")).click();
         $("#submit").click();
+        });
+        step("Verify results", () -> {
         $(".modal-open").shouldHave(text("Thanks for submitting the form"));
         $(".modal-body").shouldHave(text("denis"));
         $(".modal-body").shouldHave(text("denis@mail.com"));
@@ -48,7 +52,7 @@ public class RegistrationWithRemoteDriverTest extends TestBaseExtendet {
         $(".modal-body").shouldHave(text("Ufa102"));
         $(".modal-body").shouldHave(text("Uttar Pradesh Agra"));
         $("#closeLargeModal").click();
-
+        });
     }
 
 
