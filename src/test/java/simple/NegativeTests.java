@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("Simple")
+@Tag("simple")
 public class NegativeTests {
     @Test
     void test1() {
@@ -15,6 +15,7 @@ public class NegativeTests {
     @Test
     void test2() {
         assertTrue(false);
+
     }
 
     @Test
