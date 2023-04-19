@@ -15,12 +15,12 @@ public class RegistrationWithRemoteDriverTest extends TestBaseExtendet {
     @Test
     @Tag("remote")
     public void registrationFormTest11() {
-        step("Open form", () -> {
+        step("main page opening", () -> {
             open("https://demoqa.com/automation-practice-form");
             Selenide.executeJavaScript("$('#fixedban').remove()");
             Selenide.executeJavaScript("$('footer').remove()");
         });
-        step("Fill form", () -> {
+        step("user registration", () -> {
         $("#firstName").setValue("denis");
         $("#lastName").setValue("Yalalov");
         $("#userEmail").setValue("denis@mail.com");
@@ -40,7 +40,7 @@ public class RegistrationWithRemoteDriverTest extends TestBaseExtendet {
         $("#stateCity-wrapper").$(byText("Agra")).click();
         $("#submit").click();
         });
-        step("Verify results", () -> {
+        step("registration result", () -> {
         $(".modal-open").shouldHave(text("Thanks for submitting the form"));
         $(".modal-body").shouldHave(text("denis"));
         $(".modal-body").shouldHave(text("denis@mail.com"));
