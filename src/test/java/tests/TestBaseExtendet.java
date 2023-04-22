@@ -22,7 +22,7 @@ public class TestBaseExtendet {
         Configuration.browserVersion =logAndPassMyParameter ("browser_version","100.0");
         Configuration.pageLoadStrategy = "eager";
         Configuration.pollingInterval = 500;
-        Configuration.remote = logAndPassMyParameter("selenoid_ur","https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = logAndPassMyParameter("selenoid_url","https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
