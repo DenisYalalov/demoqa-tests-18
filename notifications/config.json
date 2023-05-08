@@ -1,0 +1,18 @@
+{
+  "base": {
+    "logo": "",
+    "project": "some project",
+    "environment": "qa.guru",
+    "comment": "any comment here, @yalalov",
+    "reportLink": "https://jenkins.autotests.cloud",
+    "language": "ru",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "221410252:AAFIMSSsiVjmqcC7qiFv2YB6rsxkW0ddc_Q",
+    "chat": "-1001717270492",
+    "replyTo": ""
+  }
+
+}

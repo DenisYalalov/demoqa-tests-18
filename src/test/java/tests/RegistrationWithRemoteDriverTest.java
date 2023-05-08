@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class RegistrationWithRemoteDriverTest extends TestBaseExtendet {
+public class RegistrationWithRemoteDriverTest extends TestBase {
 
     @Test
     @Tag("remote")
